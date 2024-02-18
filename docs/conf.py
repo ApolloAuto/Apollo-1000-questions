@@ -17,8 +17,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'cyber_record'
-copyright = '2022, daohu527'
+project = 'Apollo-1000-questions'
+copyright = '2024, daohu527'
 author = 'daohu527'
 
 
