@@ -1,9 +1,26 @@
-# 千问Apollo
+<div align="center">
+
+<h1>千问Apollo</h1>
+
+[English](README.md) | [中文](README.zh-cn.md) | [한국어](README.ko.md) | [日本語](README.ja.md)
+
+<p>
+  <a href="https://discord.gg/nf3NmuvZ">
+      <img src="https://img.shields.io/discord/1237738060175769601?style=social&logo=discord" alt="Chat with us without signup" title="Chat with us without signup">
+  </a>
+  <a href='https://apollo-1000-questions.readthedocs.io/en/latest/?badge=latest'>
+      <img src='https://readthedocs.org/projects/apollo-1000-questions/badge/?version=latest' alt='Documentation Status' />
+  </a>
+  <a href="https://github.com/ApolloAuto/Apollo-1000-questions/blob/main/LICENSE" alt="License">
+    <img src="https://img.shields.io/github/license/ApolloAuto/Apollo-1000-questions">
+  </a>
+</p>
+
+
 我们知道您对[Apollo](https://github.com/ApolloAuto/apollo)有很多疑问。这里我们总结了1000个关于Apollo的问题，我们知道这还不够，会逐渐添加答案。希望对您有帮助！
+</div>
 
-*其他语言版本: [English](README.md), [한국어](README.ko.md), [日本語](README.ja.md), [简体中文](README.zh-cn.md), [正體中文](README.zh-tw.md).*
-
-# 目录
+## 目录
 - [硬件](#hardware)
 - [中间件](#cyber)
 - [数据](#data)
