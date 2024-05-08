@@ -17,4 +17,4 @@
 ## 问题维护
 尽可能的，我们希望每个问题都有一个或者多个维护者，这一做法与Stack Overflow的提问与回答机制类似。我们期望提问者与回答者之间能够建立起长期的互动关系，并持续完善问题。如果您对某个问题有疑问，可以提交问题（issue）并提醒相应的维护者进行解答。
 
-同时，为了方便回答者提供清晰、一致的回复，我们还特别准备了回答模版文件：[English](../template/answer.md), [한국어](../template/answer.ko.md), [日本語](../template/answer.ja.md), [简体中文](../template/answer.zh-cn.md), [正體中文](../template/answer.zh-tw.md)。
+同时，为了方便回答者提供清晰、一致的回复，我们还特别准备了回答模版文件：[English](../template/answer.md), [한국어](../template/answer.ko.md), [日本語](../template/answer.ja.md), [简体中文](../template/answer.zh-cn.md)。
