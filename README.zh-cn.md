@@ -16,11 +16,14 @@
   </a>
 </p>
 
-
 我们知道您对[Apollo](https://github.com/ApolloAuto/apollo)有很多疑问。这里我们总结了1000个关于Apollo的问题，我们知道这还不够，会逐渐添加答案。希望对您有帮助！
 </div>
 
+<br>
+
 ## 目录
+
+- [基础](#basic)
 - [硬件](#hardware)
 - [中间件](#cyber)
 - [数据](#data)
@@ -31,15 +34,18 @@
 - [规划](#planning)
 - [控制](#control)
 - [坐标转换](#transform)
-- [高精度地图](#map)
+- [高精度地图](#hdmap)
 - [Dreamview](#dreamview)
 - [工具](#tools)
 - [杂项](#misc)
-- [帮助](#help)
+
+<br>
+
+## 基础
 
 ## 硬件
 
-1. 目前Apollo支持的硬件设备有哪些？:star:
+1. 目前Apollo支持的硬件设备有哪些？
 2. 如何适配车辆底盘？
 3. 如何适配计算单元？
 4. 如何适配激光雷达？
@@ -100,7 +106,7 @@
 
 ## 高精度地图
 
-1. Apollo高精度地图格式是什么？
+1. [Apollo高精度地图格式是什么？](questions/hdmap-001.zh-cn.md)
 2. 如何制作高精度地图？
 3. 如何转换bin格式地图为txt？
 4. 如何转换opendrive格式地图到apollo?
@@ -119,7 +125,3 @@
 2. 如何查看日志？
 3. 如何打开debug日志？
 4. 如何查看coredump文件？
-
-## 帮助
-
-1. 如何获取帮助？
