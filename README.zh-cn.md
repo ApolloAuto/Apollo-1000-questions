@@ -34,7 +34,7 @@
 - [规划](#planning)
 - [控制](#control)
 - [坐标转换](#transform)
-- [高精度地图](#map)
+- [高精度地图](#hdmap)
 - [Dreamview](#dreamview)
 - [工具](#tools)
 - [杂项](#misc)
@@ -106,7 +106,7 @@
 
 ## 高精度地图
 
-1. Apollo高精度地图格式是什么？
+1. [Apollo高精度地图格式是什么？](questions/hdmap-001.zh-cn.md)
 2. 如何制作高精度地图？
 3. 如何转换bin格式地图为txt？
 4. 如何转换opendrive格式地图到apollo?
