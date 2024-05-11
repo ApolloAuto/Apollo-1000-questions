@@ -108,8 +108,8 @@
 
 1. [Apollo高精度地图格式是什么？](questions/hdmap-001.zh-cn.md)
 2. 如何制作高精度地图？
-3. 如何转换bin格式地图为txt？
-4. 如何转换opendrive格式地图到apollo?
+3. [如何将二进制（bin）格式的地图转换为文本（txt）格式？](questions/hdmap-003.zh-cn.md)
+4. [如何转换OpenDRIVE格式地图到Apollo格式地图?](questions/hdmap-004.zh-cn.md)
 
 ## Dreamview
 
