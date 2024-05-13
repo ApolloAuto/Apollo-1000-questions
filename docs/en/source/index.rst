@@ -10,7 +10,7 @@ Apollo 1000 Questions
    :maxdepth: 2
    :caption: Contents:
 
-
+   README
 
 Indices and tables
 ==================
