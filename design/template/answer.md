@@ -3,8 +3,8 @@
 <!-- Question description (introducing the background of the question) -->
 
 - Maintainer: <xxx@gmail.com>
-- Version: v1
-- Date: 2024/5/7
+- Version: 1.0.0
+- Date: 05/09/2024
 - Description:
 
 ## Answer
