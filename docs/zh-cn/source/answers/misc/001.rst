@@ -1,0 +1,49 @@
+如何查看Apollo日志？
+====================
+
+如何查看Apollo日志文件？以及如何打印日志到终端？
+
+-  维护者：\ daohu527@gmail.com
+-  版本：1.0.0
+-  日期：05/09/2024
+-  描述：
+
+回答
+----
+
+Apollo提供了五种日志等级：DEBUG、INFO、WARN、ERROR和FATAL。默认情况下，系统仅保存INFO及以上级别的日志，并仅将WARN及以上级别的日志输出到终端。
+
+日志文件存储
+~~~~~~~~~~~~
+
+Apollo的日志文件是分模块保存的，它们位于\ ``data/log``\ 文件夹中。每次系统启动时，都会根据当前时间戳创建一个新的日志文件，并且会链接到相应的\ ``ModuleName.INFO.log``\ 文件下，以便快速访问。历史日志文件则按照时间戳进行保存。
+
+以感知模块为例，当启动感知模块时，系统会基于当前时间戳创建一个新的日志文件，并将其链接到\ ``perception.INFO.log``\ 。
+
+如果想日志输出到单独的文件，可以使用以下方式，日志会保存到\ ``ModuleName.INFO.log``\ 文件中。
+
+.. code:: cpp
+
+   ALOG_MODULE("ModuleName", INFO) << "Hello world!";
+
+终端日志打印
+~~~~~~~~~~~~
+
+默认情况下，DEBUG级别的日志是不显示的，但您可以通过修改\ ``cyber/setup.bash``\ 文件中的\ ``GLOG_v``\ 的值为\ ``4``\ 来启用DEBUG日志的显示。
+
+.. code:: bash
+
+   # 启用DEBUG日志
+   # for DEBUG log
+   export GLOG_v=4
+
+若您希望日志信息同时输出到终端和日志文件中，您需要设置\ ``GLOG_alsologtostderr``\ 的值为\ ``1``\ 。默认情况下，该值为0（即不输出到终端）。
+
+.. code:: bash
+
+   #export GLOG_alsologtostderr=0
+
+   # 允许日志同时输出到终端
+   export GLOG_alsologtostderr=1
+
+确保在终端中执行了\ ``source cyber/setup.bash``\ 命令，以应用这些修改。
