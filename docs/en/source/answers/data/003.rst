@@ -1,0 +1,82 @@
+How to parse Apollo Record files?
+======================
+
+How to parse Apollo Record files (e.g., extract point cloud, image messages)?
+
+-  Maintainer: \ daohu527@gmail.com, yhuai@uci.edu
+-  Version：1.0.0
+-  Date：06/05/2024
+-  Description：Translated from Chinese documentation
+
+Answer
+----
+
+`cyber_recorder <https://cyber-rt.readthedocs.io/en/latest/CyberRT_Developer_Tools.html>`_ \ can be used to record messages published by each module of Apollo at run time,
+saves those messages in record file(s), and users can extract data from the record file(s)
+for model training, problem analysis, etc.
+
+How to extract data from the record file(s)?
+
+Installation
+~~~~
+
+``cyber_record`` \ is a Python implementation of Apollo Record read/write tool,
+it provides both command line and API interfaces. It is a light weight cross-platform tool,
+with a disadvantage of slow speed.
+
+.. code:: shell
+
+   pip3 install cyber_record record_msg
+
+Read Images
+~~~~~~~~
+
+Specify the name of the ``topic`` to read image from,
+and the path ``output_path`` to save the image.
+Then, run the following code.
+
+.. code:: python
+
+   from cyber_record.record import Record
+   from record_msg.parser import ImageParser
+
+   image_parser = ImageParser(output_path='../test')
+   for topic, message, t in record.read_messages():
+     if topic == "/apollo/sensor/camera/front_6mm/image":
+       image_parser.parse(message)
+       # or use timestamp as image file name
+       # image_parser.parse(image, t)
+
+Read Point Cloud
+~~~~~~~~
+
+Specify the name of the ``topic`` to read point cloud from,
+and the path ``output_path`` to save the point cloud.
+Then, run the following code.
+
+.. code:: python
+
+   from cyber_record.record import Record
+   from record_msg.parser import PointCloudParser
+
+   pointcloud_parser = PointCloudParser('../test')
+   for topic, message, t in record.read_messages():
+     if topic == "/apollo/sensor/lidar32/compensator/PointCloud2":
+       pointcloud_parser.parse(message)
+       # other modes, default is 'ascii'
+       # pointcloud_parser.parse(message, mode='binary')
+       # pointcloud_parser.parse(message, mode='binary_compressed')
+
+
+Increasing Reading Speed
+~~~~~~~~
+
+For faster reading, you can use filter to read messages from a specific topic or within a specific time range.
+
+.. code:: python
+
+   def read_filter_by_both():
+     record = Record(file_name)
+     for topic, message, t in record.read_messages('/apollo/canbus/chassis', \
+         start_time=1627031535164278940, end_time=1627031535215164773):
+       print("{}, {}, {}".format(topic, type(message), t))
