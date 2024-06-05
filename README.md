@@ -5,7 +5,7 @@
 [English](https://apollo-1000-questions.readthedocs.io/en/latest/) | [中文](https://apollo-1000-questions.readthedocs.io/zh/latest/) | [한국어](https://apollo-1000-questions.readthedocs.io/ko/latest/) | [日本語](https://apollo-1000-questions.readthedocs.io/ja/latest/)
 
 <p>
-  <a href="https://discord.gg/nf3NmuvZ">
+  <a href="https://discord.gg/xnSUkasM">
       <img src="https://img.shields.io/discord/1237738060175769601?style=social&logo=discord" alt="Chat with us without signup" title="Chat with us without signup">
   </a>
   <a href='https://apollo-1000-questions.readthedocs.io/en/latest/?badge=latest'>
