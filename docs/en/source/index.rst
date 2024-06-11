@@ -36,58 +36,9 @@ and will gradually add answers. Hope it helps you!
    We are currently improving the Chinese version and will translate it
    into English later.
 
-Contents
---------
+.. toctree::
+   :numbered:
+   :maxdepth: 2
+   :caption: Contents:
 
--  `Hardware <#hardware>`__
--  `Cyber <#cyber>`__
--  `Localization <#localization>`__
--  `Perception <#perception>`__
--  `Prediction <#prediction>`__
--  `Routing <#routing>`__
--  `Planning <#planning>`__
--  `Control <#control>`__
--  `Transform <#transform>`__
--  `Map <#map>`__
--  `Dreamview <#dreamview>`__
--  `Tools <#tools>`__
--  `Misc <#misc>`__
-
-Hardware
---------
-
-Cyber
------
-
-Localization
-------------
-
-Perception
-----------
-
-Prediction
-----------
-
-Routing
--------
-
-Planning
---------
-
-Control
--------
-
-Transform
----------
-
-Map
----
-
-Dreamview
----------
-
-Tools
------
-
-Misc
-----
+   questions

@@ -1,0 +1,55 @@
+How to convert between Ros Bag and Apollo Record?
+============================
+
+How to convert Ros Bag into Apollo Record, and how to convert Apollo Record back into Ros Bag?
+
+-  Maintainer：\ daohu527@gmail.com, yhuai@uci.edu
+-  Version：1.0.0
+-  Date：06/05/2024
+-  Description：This document describes necessary tools and steps to convert data between Ros Bag and Apollo Record.
+
+Answer
+----
+
+Ros Bag and Apollo Record are two different data storage formats.
+Because these two formats have differences in file structure and message definition,
+data conversion is required.
+
+The process of conversion can be summarized into the following three key steps:
+
+1. **Read ROS Bag Data**\ : First, we need to open the ROS Bag file using the corresponding tool or library,
+   and read the stored ROS messages. In this step, we will get the type of ROS messages, and prepare for the subsequent conversion.
+
+2. **Convert Message Format**\ : After reading the ROS messages, we need to convert these messages from ROS 
+    format to the format supported by the Apollo. This usually involves parsing the content of ROS messages, 
+    and reorganizing this data according to the message definition of Apollo.
+
+3. **Save as Apollo Record**\ : After completing the conversion of the message format, we will save the new Apollo 
+    messages as an Apollo Record file. By completing this step, messages collected from the original ROS system can
+    now be read and used by Apollo.
+
+To simplify the process described above, we provide the ``bag_convert`` tool. 
+With this tool, users only need to specify the path of the ROS Bag file and the 
+path of the output Apollo Record file, and the data format conversion can be easily completed.
+
+
+Installation
+~~~~
+
+.. code:: shell
+
+   pip3 install bag_convert
+
+Ros Bag to Apollo Record
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: shell
+
+   bag_convert -m=b2r -b=data/input.bag -r=data/output.record
+
+Apollo Record to Ros Bag
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: shell
+
+   bag_convert -m=r2b -r=data/input.record -b=data/output.bag
