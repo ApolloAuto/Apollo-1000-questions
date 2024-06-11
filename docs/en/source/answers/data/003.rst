@@ -6,7 +6,7 @@ How to parse Apollo Record files (e.g., extract point cloud, image messages)?
 -  Maintainer: \ daohu527@gmail.com, yhuai@uci.edu
 -  Version：1.0.0
 -  Date：06/05/2024
--  Description：Translated from Chinese documentation
+-  Description：This document introduces how to extract data from Apollo Record files.
 
 Answer
 ----

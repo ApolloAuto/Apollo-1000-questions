@@ -6,7 +6,7 @@ How to convert Ros Bag into Apollo Record, and how to convert Apollo Record back
 -  Maintainer：\ daohu527@gmail.com, yhuai@uci.edu
 -  Version：1.0.0
 -  Date：06/05/2024
--  Description：Translated from Chinese documentation
+-  Description：This document describes necessary tools and steps to convert data between Ros Bag and Apollo Record.
 
 Answer
 ----
