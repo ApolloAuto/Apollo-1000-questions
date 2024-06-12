@@ -1,0 +1,74 @@
+如何查看coredump原因？
+======================
+
+程序异常奔溃后，如何查看coredump原因？
+
+-  维护者：\ daohu527@gmail.com
+-  版本：1.0.0
+-  日期：05/19/2024
+-  描述：
+
+回答
+----
+
+程序异常奔溃后，可以通过coredump文件来查看具体的错误原因。
+
+coredump文件路径
+~~~~~~~~~~~~~~~~
+
+Apollo的core
+dump文件保存在\ ``data/core``\ 目录下，当程序崩溃的时候，系统会生成一个
+core dump 文件，通常命名为 core 或 core.pid，其中 pid 是进程 ID。
+
+查看coredump原因
+~~~~~~~~~~~~~~~~
+
+``gdb`` (GNU Debugger) 是一个强大的工具，用于分析 core dump
+文件。你需要提供生成 core dump 文件的可执行文件和 core dump
+文件本身。以下是具体步骤：
+
+1. 启动 gdb，并加载可执行文件和 core dump 文件：
+
+   .. code:: shell
+
+      gdb <path-to-executable> <path-to-core-dump>
+
+   例如：
+
+   .. code:: shell
+
+      gdb ./my_program data/core/core.12345
+
+2. 在 gdb 中查看崩溃时的堆栈信息：
+
+   .. code:: shell
+
+      (gdb) bt
+
+   ``bt`` (backtrace) 命令会显示崩溃时的调用堆栈，有助于定位问题。
+
+示例
+~~~~
+
+假设生成的 core dump 文件是 ``core.12345``\ ，你可以按如下步骤查看：
+
+.. code:: shell
+
+   $ gdb mainboard data/core/core.12345
+
+在 gdb 提示符下：
+
+.. code:: shell
+
+   (gdb) bt
+   # 会显示调用堆栈
+   (gdb) info locals
+   # 显示当前帧的局部变量
+   (gdb) print some_variable
+   # 打印变量 some_variable 的值
+   (gdb) list
+   # 显示当前执行的代码行
+   (gdb) list my_program.c:42
+   # 查看 my_program.c 文件第 42 行的代码
+
+通过上述步骤，你可以深入分析程序崩溃的原因，并进行相应的调试和修复。
