@@ -1,0 +1,23 @@
+如何转换数据集为Record数据包？
+==============================
+
+为了评估Apollo感知算法在特定数据集上的性能，我希望将数据集中的数据转换成Apollo所需的数据包，以便在Apollo平台上进行测试。
+
+-  维护者：\ daohu527@gmail.com
+-  版本：1.0.0
+-  日期：06/13/2024
+-  描述：
+
+回答
+----
+
+可以使用\ ``adataset``\ 工具进行数据集到record包的转换。目前已经支持的数据集有：apolloscape、KITTI、nuScenes。
+
+以nuScenes数据集为例。设置\ ``dataset_path``\ 为nuScenes数据集所在路径。默认情况下，数据包输出到当前目录。
+
+.. code:: shell
+
+   adataset -d=n -i=dataset_path
+
+nuScenes
+record包的名称是scene_token.record，KITTI是result.record，而ApolloScape是frame_id.record。
