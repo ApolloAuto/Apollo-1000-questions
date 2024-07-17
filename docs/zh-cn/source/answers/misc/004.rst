@@ -1,0 +1,32 @@
+拉取Apollo Docker失败怎么办？
+=============================
+
+国内拉取Apollo Docker失败如何解决？
+
+-  维护者：\ daohu527@gmail.com
+-  版本：1.0.0
+-  日期：07/17/2024
+-  描述：
+
+回答
+----
+
+由于国内访问Docker Hub受限，作为替代方案，国内采用百度云的镜像下载，国外继续采用Docker Hub，如果提示如下错误信息
+
+::
+
+   [INFO] Use default GeoLocation settings
+   [INF0] Start pulling docker image apolloauto/apollo:dev-x86_64-18.04-20240620_1444 ...
+   Error response fron daernon: manifest for apolloauto/apollo:dev-x86_64-18.04-20240620_1444 not found: manifest unknown: manifest unknown
+   [ERROR] Failed to pull docker image : apolloauto/apollo:dev-x86_64-18.04-20240620_1444
+
+错误原因
+~~~~~~~~
+
+可以看到，上述错误信息使用的还是默认的配置\ ``Use default GeoLocation settings``\ ，即Docker
+Hub的方式。
+
+解决方法
+~~~~~~~~
+
+因为启动脚本会通过读取系统市区，如果是北京时间则是国内，采用国内百度云镜像下载，否则是国外，默认采用Docker Hub，因此当出现上述错误的时候，\ **检查当前系统时区是否是北京时区\ ``+0800``**\ 。
