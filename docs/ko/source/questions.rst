@@ -1,4 +1,4 @@
-基础
+Basic
 ----
 
 .. toctree::
@@ -8,7 +8,7 @@
 
    answers/basic/*
 
-硬件
+Hardware
 ----
 
 .. toctree::
@@ -18,7 +18,7 @@
 
    answers/hardware/*
 
-中间件
+CyberRT
 ------
 
 .. toctree::
@@ -28,7 +28,7 @@
 
    answers/cyber/*
 
-数据
+Data
 ----
 
 .. toctree::
@@ -38,7 +38,7 @@
 
    answers/data/*
 
-定位
+Localization
 ----
 
 .. toctree::
@@ -48,7 +48,7 @@
 
    answers/localization/*
 
-感知
+Perception
 ----
 
 .. toctree::
@@ -58,7 +58,7 @@
 
    answers/perception/*
 
-预测
+Prediction
 ----
 
 .. toctree::
@@ -68,7 +68,7 @@
 
    answers/prediction/*
 
-导航
+Routing
 ----
 
 .. toctree::
@@ -78,7 +78,7 @@
 
    answers/routing/*
 
-规划
+Planning
 ----
 
 .. toctree::
@@ -88,7 +88,7 @@
 
    answers/planning/*
 
-控制
+Control
 ----
 
 .. toctree::
@@ -98,7 +98,7 @@
 
    answers/control/*
 
-坐标转换
+Transform
 --------
 
 .. toctree::
@@ -108,7 +108,7 @@
 
    answers/transform/*
 
-高精度地图
+HD Map
 ----------
 
 .. toctree::
@@ -118,7 +118,7 @@
 
    answers/hdmap/*
 
-仿真
+Simulation
 ----
 
 .. toctree::
@@ -138,7 +138,7 @@ Dreamview
 
    answers/dreamview/*
 
-工具
+Tools
 ----
 
 .. toctree::
@@ -148,7 +148,7 @@ Dreamview
 
    answers/tools/*
 
-杂项
+Misc
 ----
 
 .. toctree::
