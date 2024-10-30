@@ -2,7 +2,7 @@
 
 <h1>Apollo 1000 Questions</h1>
 
-[English](https://apollo-1000-questions.readthedocs.io/en/latest/) | [中文](https://apollo-1000-questions.readthedocs.io/zh/latest/) | [한국어](https://apollo-1000-questions.readthedocs.io/ko/latest/) | [日本語](https://apollo-1000-questions.readthedocs.io/ja/latest/)
+[English](https://apollo-1000-questions.readthedocs.io/en/latest/) | [中文](https://apollo-1000-questions.readthedocs.io/zh-cn/latest/) | [한국어](https://apollo-1000-questions.readthedocs.io/ko/latest/) | [日本語](https://apollo-1000-questions.readthedocs.io/ja/latest/)
 
 <p>
   <a href="https://discord.gg/xnSUkasM">
