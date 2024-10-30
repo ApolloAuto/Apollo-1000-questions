@@ -1,0 +1,48 @@
+RosBag和Record如何互相转换？
+============================
+
+如何有效地将ROS Bag转换为Apollo Record，以及将Apollo Record转回ROS Bag？
+
+-  维护者：\ daohu527@gmail.com
+-  版本：1.0.0
+-  日期：05/14/2024
+-  描述：
+
+回答
+----
+
+ROS Bag和Apollo
+Record是两种不同的数据保存格式，由于这两种格式在文件结构和消息定义上存在差异，因此需要进行数据转换。
+
+转换过程可归纳为以下三个关键步骤：
+
+1. **读取ROS Bag数据**\ ：首先，我们需要使用相应的工具或库打开ROS
+   Bag文件，并从中读取存储的ROS消息。在这一步中，我们将获取ROS消息的类型，为后续转换做准备。
+2. **转换消息格式**\ ：在读取了ROS消息后，我们需要将这些消息从ROS格式转换为Apollo系统所支持的格式。这通常涉及到解析ROS消息的内容，并根据Apollo的消息定义重新组织这些数据。
+3. **保存为Apollo
+   Record**\ ：完成消息格式的转换后，我们将新的Apollo消息保存为Apollo
+   Record格式的文件。这样，原本在ROS系统中使用的数据就可以在Apollo系统中被读取和使用了。
+
+为了简化上述转换过程，我们提供了\ ``bag_convert``\ 工具。使用此工具，用户只需指定ROS
+Bag文件的路径和输出Apollo Record文件的路径，即可轻松完成数据格式的转换。
+
+安装
+~~~~
+
+.. code:: shell
+
+   pip3 install bag_convert
+
+Ros Bag转Cyber Record
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: shell
+
+   bag_convert -m=b2r -b=data/input.bag -r=data/output.record
+
+Cyber Record转Ros Bag
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: shell
+
+   bag_convert -m=r2b -r=data/input.record -b=data/output.bag

@@ -1,0 +1,13 @@
+How Does Apollo Implement the BEV Perception Algorithm?
+========================================================
+
+How to run the BEV perception algorithm in Apollo? How to improve existing algorithms?
+
+-  Maintainer: <daohu527@gmail.com>
+-  Version: 1.0.0
+-  Date: 05/19/2024
+-  Description:
+
+Answer
+------
+

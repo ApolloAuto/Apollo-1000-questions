@@ -1,0 +1,56 @@
+How to Convert Binary (bin) Format Maps to Text (txt) Format?
+===============================================================
+
+What is the difference between binary format maps and text format maps? How can they be converted between each other?
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 05/09/2024
+-  Description:
+
+Answer
+------
+
+Apollo high-definition maps are primarily implemented based on the protobuf protocol, which supports two file formats for storage: bin and txt.
+
+-  **Bin Format**
+   This is a compact file format, advantageous for significantly reducing file size, thus minimizing storage and transmission costs. However, because it is binary encoded, it cannot be directly read by text editors.
+
+-  **Txt Format**
+   This is a text-based storage method, allowing map data to be intuitively displayed in text form, making it easier for developers to view and debug. However, this format takes up more storage space and has relatively lower transmission efficiency.
+
+In practical applications, to ensure efficient storage and transmission of map data, the Apollo system typically opts to use the bin format for saving and loading maps. The txt format serves mainly as an auxiliary means for debugging and viewing, facilitating developers in understanding and verifying map data.
+
+Binary (bin) to Text (txt)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Install protoc
+
+Install protoc, refer to `Installing protoc <https://google.github.io/proto-lens/installing-protoc.html>`__.
+
+2. Run the command
+
+.. code:: shell
+
+   # modules/map/data/borregas_ave/base_map.bin (replace with the map you want to convert)
+
+   protoc --decode apollo.hdmap.Map modules/map/proto/map.proto < modules/map/data/borregas_ave/base_map.bin > base_map.txt
+
+3. The converted map file ``base_map.txt`` is saved in the current working directory.
+
+Text (txt) to Binary (bin)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Install protoc
+
+Same as above.
+
+2. Run the command
+
+.. code:: shell
+
+   # modules/map/data/demo/base_map.txt (replace with the map you want to convert)
+
+   protoc --encode apollo.hdmap.Map modules/map/proto/map.proto < modules/map/data/demo/base_map.txt > base_map.bin
+
+3. The converted map file ``base_map.bin`` is saved in the current working directory.

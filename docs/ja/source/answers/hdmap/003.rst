@@ -1,0 +1,56 @@
+バイナリ（bin）形式の地図をテキスト（txt）形式に変換する方法
+==========================================================
+
+バイナリ形式の地図とテキスト形式の地図の違いは何ですか？それらはどのように相互変換できますか？
+
+-  メンテナー：\ daohu527@gmail.com
+-  バージョン：1.0.0
+-  日付：2024年5月9日
+-  説明：
+
+回答
+----
+
+Apolloの高精度地図は、主にprotobufプロトコルに基づいて実装されており、ストレージ用に二つのファイル形式（binとtxt）をサポートしています。
+
+-  **bin形式**
+   これはコンパクトなファイル形式で、ファイルサイズを大幅に削減できるため、ストレージや転送のコストを最小限に抑えることができます。しかし、バイナリコーディングのため、テキストエディタで直接読むことはできません。
+
+-  **txt形式**
+   これはテキストベースのストレージ方法であり、地図データを直感的にテキスト形式で表示できるため、開発者が確認やデバッグを行いやすくなります。しかし、この形式はストレージスペースを多く占有し、転送効率が比較的低いです。
+
+実際のアプリケーションでは、地図データの効率的な保存と転送を確保するため、Apolloシステムは通常、地図の保存と読み込みにbin形式を使用します。一方、txt形式は主にデバッグや表示の補助手段として使用され、開発者が地図データを理解し、検証するのを容易にします。
+
+バイナリ（bin）からテキスト（txt）への変換
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. protocをインストール
+
+protocをインストールします。`Installing protoc <https://google.github.io/proto-lens/installing-protoc.html>`__を参照してください。
+
+2. コマンドを実行
+
+.. code:: shell
+
+   # modules/map/data/borregas_ave/base_map.bin（変換したい地図に置き換えてください）
+
+   protoc --decode apollo.hdmap.Map modules/map/proto/map.proto < modules/map/data/borregas_ave/base_map.bin > base_map.txt
+
+3. 変換された地図ファイル``base_map.txt``は、現在の作業ディレクトリに保存されます。
+
+テキスト（txt）からバイナリ（bin）への変換
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. protocをインストール
+
+上記と同様です。
+
+2. コマンドを実行
+
+.. code:: shell
+
+   # modules/map/data/demo/base_map.txt（変換したい地図に置き換えてください）
+
+   protoc --encode apollo.hdmap.Map modules/map/proto/map.proto < modules/map/data/demo/base_map.txt > base_map.bin
+
+3. 変換された地図ファイル``base_map.bin``は、現在の作業ディレクトリに保存されます。

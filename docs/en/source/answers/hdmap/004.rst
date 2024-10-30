@@ -1,0 +1,38 @@
+How to Convert OpenDRIVE Format Maps to Apollo Format Maps?
+============================================================
+
+How can these two map formats be converted to each other?
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 05/09/2024
+-  Description:
+
+Answer
+------
+
+Here are the methods for converting between the two map formats.
+
+OpenDRIVE to Apollo
+~~~~~~~~~~~~~~~~~~~~
+
+You can use the `imap <https://github.com/daohu527/imap>`__ tool to convert OpenDRIVE format maps to Apollo format maps.
+
+1. Install imap
+
+.. code:: shell
+
+   pip3 install imap_box
+
+2. Convert the format
+
+.. code:: shell
+
+   # data/town.xodr (OpenDRIVE format map)
+   # data/apollo_map.txt (Apollo format map)
+   imap -f -i data/town.xodr -o data/apollo_map.txt
+
+Apollo to OpenDRIVE
+~~~~~~~~~~~~~~~~~~~~
+
+Todo: Currently, there is no corresponding conversion tool.

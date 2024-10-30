@@ -1,0 +1,49 @@
+How to View Apollo Logs?
+==========================
+
+How can I view Apollo log files? And how can I print logs to the terminal?
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 05/09/2024
+-  Description:
+
+Answer
+------
+
+Apollo provides five log levels: DEBUG, INFO, WARN, ERROR, and FATAL. By default, the system only saves logs of level INFO and above, and only outputs logs of level WARN and above to the terminal.
+
+Log File Storage
+~~~~~~~~~~~~~~~~
+
+Apollo's log files are saved by module and are located in the ``data/log`` folder. A new log file is created based on the current timestamp each time the system starts, and it is linked to the corresponding ``ModuleName.INFO.log`` file for quick access. Historical log files are saved according to their timestamps.
+
+For example, when the perception module is started, the system will create a new log file based on the current timestamp and link it to ``perception.INFO.log``.
+
+If you want the logs to output to a separate file, you can use the following method, and the logs will be saved in the ``ModuleName.INFO.log`` file.
+
+.. code:: cpp
+
+   ALOG_MODULE("ModuleName", INFO) << "Hello world!";
+
+Terminal Log Printing
+~~~~~~~~~~~~~~~~~~~~~
+
+By default, DEBUG-level logs are not displayed, but you can enable DEBUG log display by modifying the value of ``GLOG_v`` in the ``cyber/setup.bash`` file to ``4``.
+
+.. code:: bash
+
+   # Enable DEBUG logs
+   # for DEBUG log
+   export GLOG_v=4
+
+If you want the log information to be output both to the terminal and to the log file, you need to set the value of ``GLOG_alsologtostderr`` to ``1``. By default, this value is 0 (i.e., not output to the terminal).
+
+.. code:: bash
+
+   # export GLOG_alsologtostderr=0
+
+   # Allow logs to be output to the terminal as well
+   export GLOG_alsologtostderr=1
+
+Make sure to execute the command ``source cyber/setup.bash`` in the terminal to apply these modifications.

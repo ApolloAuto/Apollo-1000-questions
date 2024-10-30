@@ -1,0 +1,46 @@
+如何下载Apollo感知模型？
+==========================
+
+如何获取Apollo预训练的感知模型，并查看系统中已安装有哪些模型？
+
+- 维护者：<daohu527@gmail.com>
+- 版本：1.0.0
+- 日期：05/19/2024
+- 描述：
+
+回答
+-----
+
+为验证自动驾驶算法，Apollo支持多种任务和模型。由于模型文件较大，自8.0版本起，我们已将模型从源码中移除，并采用 `amodel` 工具进行模型管理，包括安装、查看和卸载模型。
+
+安装amodel
+~~~~~~~~~~
+
+在容器中，使用以下命令安装amodel。
+
+.. code-block:: shell
+
+    sudo pip3 install modules/tools/amodel
+
+.. note::
+
+    注意：由于amodel 1.0与2.0不兼容，我们将手动安装至容器中，作为临时解决方案。
+
+下载模型
+~~~~~~~~~~
+
+使用模型名称或地址链接安装模型。模型下载地址 `链接 <https://github.com/ApolloAuto/apollo/discussions/15212>`_。
+
+.. code-block:: shell
+
+    // 示例
+    amodel install center_point_paddle
+
+查看模型
+~~~~~~~~~~
+
+查看系统中已安装的模型。
+
+.. code-block:: shell
+
+    amodel list

@@ -1,0 +1,16 @@
+What hardware devices are currently supported by Apollo?
+=======================================================
+
+What hardware devices are currently supported by Apollo? For example, vehicle chassis, computing units, sensors, etc.
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 05/09/2024
+-  Description:
+
+Answer
+------
+
+Apollo provides comprehensive support for various autonomous driving hardware devices to facilitate customers in selecting the appropriate hardware. For a detailed list of supported hardware, please refer to the official `Hardware Development Platform <https://apollo.baidu.com/community/hardware>`__ page.
+
+If you are a hardware manufacturer, you are also welcome to join the Apollo hardware ecosystem to promote the development of autonomous driving technology together.

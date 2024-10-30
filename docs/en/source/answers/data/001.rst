@@ -1,0 +1,22 @@
+How to Convert a Dataset to a Record Package?
+==============================
+
+To evaluate the performance of Apollo's perception algorithms on a specific dataset, I want to convert the data in the dataset into the format required by Apollo for testing on the Apollo platform.
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 06/13/2024
+-  Description:
+
+Answer
+----
+
+You can use the \ ``adataset``\ tool to convert a dataset to a record package. Currently supported datasets include: apolloscape, KITTI, and nuScenes.
+
+Taking the nuScenes dataset as an example, set \ ``dataset_path``\ to the path where the nuScenes dataset is located. By default, the package is output to the current directory.
+
+.. code:: shell
+
+   adataset -d=n -i=dataset_path
+
+For nuScenes, the record package name is scene_token.record, for KITTI it is result.record, and for ApolloScape it is frame_id.record.

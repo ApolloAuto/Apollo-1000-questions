@@ -1,0 +1,31 @@
+What to Do When Pulling Apollo Docker Fails?
+==============================================
+
+How to resolve the issue of failing to pull Apollo Docker images in China?
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 07/17/2024
+-  Description:
+
+Answer
+------
+
+Due to restrictions on accessing Docker Hub in China, a workaround is to use Baidu Cloud mirrors for downloading, while users outside of China can continue using Docker Hub. If you encounter the following error message:
+
+::
+
+   [INFO] Use default GeoLocation settings
+   [INFO] Start pulling docker image apolloauto/apollo:dev-x86_64-18.04-20240620_1444 ...
+   Error response from daemon: manifest for apolloauto/apollo:dev-x86_64-18.04-20240620_1444 not found: manifest unknown: manifest unknown
+   [ERROR] Failed to pull docker image: apolloauto/apollo:dev-x86_64-18.04-20240620_1444
+
+Error Reason
+~~~~~~~~~~~~
+
+As seen, the error message indicates that the default configuration \ ``Use default GeoLocation settings`` \ is still being used, which refers to Docker Hub.
+
+Solution
+~~~~~~~~
+
+The startup script checks the system timezone; if it is set to Beijing time, it will use the Baidu Cloud mirror for downloading, otherwise, it defaults to Docker Hub. Therefore, when the above error occurs, \ **check if the current system timezone is Beijing timezone \ ``+0800``** \.

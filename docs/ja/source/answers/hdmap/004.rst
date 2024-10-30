@@ -1,0 +1,38 @@
+OpenDRIVE形式の地図をApollo形式の地図に変換する方法
+====================================================
+
+これらの2つの地図形式を相互に変換するにはどうすればよいですか？
+
+-  メンテナー：\ daohu527@gmail.com
+-  バージョン：1.0.0
+-  日付：2024年5月9日
+-  説明：
+
+回答
+----
+
+以下は、2つの地図形式の変換方法です。
+
+OpenDRIVEからApolloへ
+~~~~~~~~~~~~~~~~~~~~~
+
+OpenDRIVE形式の地図をApollo形式の地図に変換するには、`imap <https://github.com/daohu527/imap>`__ツールを使用できます。
+
+1. imapをインストール
+
+.. code:: shell
+
+   pip3 install imap_box
+
+2. フォーマットを変換
+
+.. code:: shell
+
+   # data/town.xodr (OpenDRIVE形式の地図)
+   # data/apollo_map.txt (Apollo形式の地図)
+   imap -f -i data/town.xodr -o data/apollo_map.txt
+
+ApolloからOpenDRIVEへ
+~~~~~~~~~~~~~~~~~~~~~
+
+Todo: 現在、対応する変換ツールはありません。

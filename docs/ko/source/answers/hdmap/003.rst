@@ -1,0 +1,56 @@
+이진(bin) 형식의 지도를 텍스트(txt) 형식으로 변환하는 방법
+==============================================================
+
+이진 형식의 지도와 텍스트 형식의 지도의 차이점은 무엇인가요? 서로 어떻게 변환할 수 있나요?
+
+-  유지 관리자: \ daohu527@gmail.com
+-  버전: 1.0.0
+-  날짜: 2024년 5월 9일
+-  설명：
+
+답변
+----
+
+Apollo 고정밀 지도는 주로 protobuf 프로토콜을 기반으로 구현되어 있으며, 두 가지 파일 형식(bin 및 txt)을 지원합니다.
+
+-  **bin 형식**
+   이는 압축된 파일 형식으로, 파일 크기를 크게 줄여 저장 및 전송 비용을 최소화할 수 있는 장점이 있습니다. 그러나 이진 인코딩으로 인해 텍스트 편집기를 통해 직접 읽을 수는 없습니다.
+
+-  **txt 형식**
+   이는 텍스트 기반 저장 방식으로, 지도 데이터를 직관적으로 텍스트 형태로 표시하여 개발자가 쉽게 확인하고 디버그할 수 있습니다. 그러나 이 형식은 더 많은 저장 공간을 차지하고 전송 효율성이 상대적으로 낮습니다.
+
+실제 응용 프로그램에서는 지도 데이터의 효율적인 저장 및 전송을 보장하기 위해 Apollo 시스템이 일반적으로 bin 형식을 사용하여 지도를 저장하고 불러옵니다. 반면, txt 형식은 주로 디버그 및 확인의 보조 수단으로 사용되어 개발자가 지도 데이터를 이해하고 검증하는 데 편리합니다.
+
+이진(bin)에서 텍스트(txt)로 변환
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. protoc 설치
+
+protoc를 설치합니다. `Installing protoc <https://google.github.io/proto-lens/installing-protoc.html>`__를 참조하세요.
+
+2. 명령 실행
+
+.. code:: shell
+
+   # modules/map/data/borregas_ave/base_map.bin (변환하려는 지도 파일로 교체)
+
+   protoc --decode apollo.hdmap.Map modules/map/proto/map.proto < modules/map/data/borregas_ave/base_map.bin > base_map.txt
+
+3. 변환된 지도 파일 ``base_map.txt``가 현재 작업 디렉터리에 저장됩니다.
+
+텍스트(txt)에서 이진(bin)으로 변환
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. protoc 설치
+
+위와 동일합니다.
+
+2. 명령 실행
+
+.. code:: shell
+
+   # modules/map/data/demo/base_map.txt (변환하려는 지도 파일로 교체)
+
+   protoc --encode apollo.hdmap.Map modules/map/proto/map.proto < modules/map/data/demo/base_map.txt > base_map.bin
+
+3. 변환된 지도 파일 ``base_map.bin``가 현재 작업 디렉터리에 저장됩니다.

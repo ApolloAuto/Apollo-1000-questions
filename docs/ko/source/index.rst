@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ==========
-Apolloに関する1,000の質問
+Apollo에 대한 1,000가지 질문
 ==========
 
 `English <https://apollo-1000-questions.readthedocs.io/en/latest/>`__
@@ -26,11 +26,11 @@ Apolloに関する1,000の質問
    </a>
    </p>
 
-`Apollo <https://github.com/ApolloAuto/apollo>`__に関して多くの質問があることを理解しています。ここではApolloに関する1,000の質問をまとめました。これが十分ではないことは承知しており、徐々に回答を追加していく予定です。お役に立てれば幸いです！
+`Apollo <https://github.com/ApolloAuto/apollo>`__에 대해 많은 질문이 있다는 것을 알고 있습니다. 여기에서는 Apollo에 대한 1,000가지 질문을 정리했습니다. 이것이 충분하지 않다는 것을 알고 있으며, 점차 답변을 추가할 예정입니다. 도움이 되길 바랍니다!
 
 .. toctree::
    :numbered:
    :maxdepth: 2
-   :caption: 目次:
+   :caption: 목차:
 
    questions

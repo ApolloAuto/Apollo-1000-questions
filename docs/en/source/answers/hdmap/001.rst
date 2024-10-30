@@ -1,0 +1,58 @@
+What is the Format of Apollo High-Definition Maps?
+===================================================
+
+What is the format of Apollo high-definition maps? Please briefly describe its features and application scenarios.
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 05/09/2024
+-  Description:
+
+Answer
+------
+
+The format of Apollo high-definition maps references the `ASAM OpenDRIVE <https://www.asam.net/standards/detail/opendrive/>`__ standard and has been optimized for the practical needs of autonomous driving. For detailed map formats, please refer to the `Apollo High-Definition Map Format Specification <https://github.com/ApolloAuto/apollo/files/12481150/EN_APOLLO_HDMap_OpenDrive_Specs_A3.0.1.pdf>`__.
+
+Apollo's optimization is mainly reflected in two aspects: the discretization representation of lanes and the simplification of lane elements.
+
+Continuous to Discrete
+~~~~~~~~~~~~~~~~~~~~~~
+
+In the OpenDRIVE standard, lane markings are divided into the following types: straight lines, spirals, arcs, parametric cubic curves, and cubic polynomials (deprecated).
+
+.. raw:: html
+
+    <a href="https://publications.pages.asam.net/standards/ASAM_OpenDRIVE/ASAM_OpenDRIVE_Specification/latest/specification/09_geometries/09_01_introduction.html">
+        <img src="https://publications.pages.asam.net/standards/ASAM_OpenDRIVE/ASAM_OpenDRIVE_Specification/latest/specification/_images/09_geometry/geom_overview.png" width="100%"/>
+    </a>
+
+Taking a straight line as an example, it is defined by the starting point coordinates (x, y), angle hdg, and length, which allows for the calculation of the coordinates of any point on the line.
+
+::
+
+   <planView>
+       <geometry s="0.0000000000000000e+00"
+                 x="-4.7170752711170401e+01"
+                 y="7.2847983820912710e-01"
+                 hdg="6.5477882613167993e-01"
+                 length="5.7280000000000000e+01">
+           <line/>
+       </geometry>
+   </planView>
+
+However, in autonomous driving systems, planning algorithms typically work based on sampled points. For continuous curves, this means real-time calculations are needed, increasing the computational burden on the system. To simplify this process, Apollo chooses to discretize the lanes, converting continuous curves into a series of discrete points that can be directly used for planning and decision-making in autonomous driving.
+
+Simplifying Lane Elements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In OpenDRIVE, only the coordinates of the lane centerline are provided, while the left and right boundaries of the lane must be calculated based on lane width and offset. This design increases the complexity of map usage, especially when determining whether an autonomous vehicle is within the lane, requiring additional calculations for the lane boundaries.
+
+.. raw:: html
+
+    <a href="https://publications.pages.asam.net/standards/ASAM_OpenDRIVE/ASAM_OpenDRIVE_Specification/latest/specification/11_lanes/11_04_lane_offset.html">
+        <img src="https://publications.pages.asam.net/standards/ASAM_OpenDRIVE/ASAM_OpenDRIVE_Specification/latest/specification/_images/11_lanes/lanes_offset.png" width="100%"/>
+    </a>
+
+To simplify this process, Apollo directly stores the left and right boundaries and adjacency relationships of each lane in the map. This means that when determining the position of the autonomous vehicle, real-time calculations are unnecessary, and the boundary information stored in the map can be used directly. This design significantly improves the usability and efficiency of the map.
+
+Based on these two points, Apollo's high-definition maps provide more efficient and user-friendly map data support for autonomous driving systems by discretizing lanes and simplifying lane elements.

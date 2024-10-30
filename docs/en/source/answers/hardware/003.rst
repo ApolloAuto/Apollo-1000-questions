@@ -1,0 +1,35 @@
+How to Adapt a New Autonomous Driving Vehicle Chassis?
+========================================================
+
+I want to adapt a new autonomous driving vehicle, but it is not in the current list of vehicles supported by Apollo. What steps do I need to take?
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 07/24/2024
+-  Description:
+
+Answer
+------
+
+To adapt a new autonomous driving vehicle, you first need to ensure that the vehicle meets the requirements for drive-by-wire, meaning it must be capable of controlling the vehicle via electrical signals, including: drive-by-wire throttle, drive-by-wire brakes, drive-by-wire steering, and drive-by-wire gear shifting. Secondly, the performance of these drive-by-wire systems must meet the requirements for autonomous driving control, which can vary by different scenarios; for example, the standards for trucks and passenger cars differ. Finally, you need to obtain the vehicle's DBC control protocol to send control commands according to the protocol.
+
+Next, we will detail these components.
+
+Drive-by-Wire
+~~~~~~~~~~~~~~
+
+Traditional vehicles are controlled through throttle, brake pedals, steering wheels, and gear levers, while autonomous vehicles achieve control by sending commands via a CAN bus. Therefore, the vehicle must support control via electrical signals, meaning it must have drive-by-wire throttle, drive-by-wire brakes, drive-by-wire steering, and drive-by-wire gear functions.
+
+Drive-by-Wire Performance
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Not only must the vehicle support drive-by-wire, but its performance must also meet certain standards. For example, the response time from receiving control commands and the vehicle's steering accuracy, among others. The better the drive-by-wire performance, the easier it is to control the vehicle; if the performance is poor, controlling the vehicle becomes more difficult and may even hinder autonomous driving capabilities. Detailed drive-by-wire requirements can be referenced from the `Apollo Drive-by-Wire Standards <https://apollo-homepage.bj.bcebos.com/Apollo_by_wire_requirement.xlsx>`__.
+
+   Note: This is a requirement for passenger vehicle chassis; commercial vehicle requirements may differ. To support different chassis and dynamics, the control modules will need to be adjusted accordingly.
+
+Chassis Protocol
+~~~~~~~~~~~~~~~~
+
+Even if the vehicle supports drive-by-wire and meets the performance requirements, you still need to adapt the vehicle's chassis control protocol, as control protocols vary by manufacturer, in order to achieve vehicle control. To simplify the adaptation process, we provide the `adbtool <https://github.com/daohu527/adbctool>`__ tool, which can convert the vehicle's DBC protocol to the C++ vehicle control protocol used in Apollo. This way, control commands from the Apollo autonomous driving system can be converted into vehicle CAN bus commands, allowing control of the vehicle.
+
+This concludes the process of adding a new vehicle chassis to Apollo.

@@ -1,0 +1,70 @@
+How to View Core Dump Causes?
+===============================
+
+After a program crashes abnormally, how can I check the cause of the core dump?
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 05/19/2024
+-  Description:
+
+Answer
+------
+
+After a program crashes abnormally, you can use the core dump file to check the specific error cause.
+
+Core Dump File Path
+~~~~~~~~~~~~~~~~~~~
+
+Apollo's core dump files are stored in the ``data/core`` directory. When the program crashes, the system generates a core dump file, usually named `core` or `core.pid`, where `pid` is the process ID.
+
+Checking the Cause of the Core Dump
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``gdb`` (GNU Debugger) is a powerful tool for analyzing core dump files. You need to provide the executable that generated the core dump file and the core dump file itself. Here are the specific steps:
+
+1. Start gdb and load the executable file and core dump file:
+
+   .. code:: shell
+
+      gdb <path-to-executable> <path-to-core-dump>
+
+   For example:
+
+   .. code:: shell
+
+      gdb ./my_program data/core/core.12345
+
+2. In gdb, view the stack information at the time of the crash:
+
+   .. code:: shell
+
+      (gdb) bt
+
+   The ``bt`` (backtrace) command will display the call stack at the time of the crash, which helps in locating the issue.
+
+Example
+~~~~~~~
+
+Suppose the generated core dump file is ``core.12345``, you can check it as follows:
+
+.. code:: shell
+
+   $ gdb mainboard data/core/core.12345
+
+At the gdb prompt:
+
+.. code:: shell
+
+   (gdb) bt
+   # This will show the call stack
+   (gdb) info locals
+   # Display the local variables in the current frame
+   (gdb) print some_variable
+   # Print the value of the variable some_variable
+   (gdb) list
+   # Show the current line of code being executed
+   (gdb) list my_program.c:42
+   # View the code at line 42 of my_program.c
+
+By following these steps, you can deeply analyze the reason for the program crash and perform corresponding debugging and fixes.

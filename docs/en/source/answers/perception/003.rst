@@ -1,0 +1,46 @@
+How to Download Apollo Perception Models?
+===========================================
+
+How can I obtain the pre-trained perception models for Apollo and see which models are installed in the system?
+
+-  Maintainer: <daohu527@gmail.com>
+-  Version: 1.0.0
+-  Date: 05/19/2024
+-  Description:
+
+Answer
+------
+
+To validate autonomous driving algorithms, Apollo supports various tasks and models. Since model files are large, starting from version 8.0, we have removed the models from the source code and adopted the `amodel` tool for model management, including installation, viewing, and uninstalling models.
+
+Installing amodel
+~~~~~~~~~~~~~~~~~
+
+In the container, use the following command to install amodel.
+
+.. code-block:: shell
+
+    sudo pip3 install modules/tools/amodel
+
+.. note::
+
+    Note: Since amodel 1.0 is not compatible with 2.0, we will manually install it in the container as a temporary solution.
+
+Downloading Models
+~~~~~~~~~~~~~~~~~
+
+Use the model name or address link to install the model. The model download address is `this link <https://github.com/ApolloAuto/apollo/discussions/15212>`_.
+
+.. code-block:: shell
+
+    // Example
+    amodel install center_point_paddle
+
+Viewing Models
+~~~~~~~~~~~~~~
+
+View the models installed in the system.
+
+.. code-block:: shell
+
+    amodel list

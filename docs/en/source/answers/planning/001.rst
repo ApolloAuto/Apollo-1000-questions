@@ -1,0 +1,13 @@
+How does Apollo implement Reinforcement Learning for Trajectory Planning?
+==========================================================================
+
+Apollo implements vehicle trajectory planning through reinforcement learning. How can it be run? And how can existing reinforcement learning algorithms be improved?
+
+-  Maintainer: <daohu527@gmail.com>
+-  Version: 1.0.0
+-  Date: 05/19/2024
+-  Description:
+
+Answer
+------
+

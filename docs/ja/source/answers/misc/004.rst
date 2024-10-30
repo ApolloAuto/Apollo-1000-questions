@@ -1,0 +1,31 @@
+Apollo Dockerのプルに失敗した場合の対処法
+=========================================
+
+国内でApollo Dockerのプルが失敗した場合、どのように解決できますか？
+
+-  メンテナー：\ daohu527@gmail.com
+-  バージョン：1.0.0
+-  日付：2024年7月17日
+-  説明：
+
+回答
+----
+
+中国ではDocker Hubへのアクセスに制限があるため、代替案としてBaidu Cloudのミラーを使用してダウンロードし、国外ではDocker Hubを引き続き使用します。以下のエラーメッセージが表示された場合：
+
+::
+
+   [INFO] Use default GeoLocation settings
+   [INFO] Start pulling docker image apolloauto/apollo:dev-x86_64-18.04-20240620_1444 ...
+   Error response from daemon: manifest for apolloauto/apollo:dev-x86_64-18.04-20240620_1444 not found: manifest unknown: manifest unknown
+   [ERROR] Failed to pull docker image: apolloauto/apollo:dev-x86_64-18.04-20240620_1444
+
+エラーの理由
+~~~~~~~~~~~~~
+
+上記のエラーメッセージは、デフォルト設定\ ``Use default GeoLocation settings`` \がまだ使用されていることを示しています。これはDocker Hubを指しています。
+
+解決策
+~~~~~~~~
+
+起動スクリプトはシステムのタイムゾーンを確認します。もし北京時間に設定されている場合、Baidu Cloudのミラーを使用してダウンロードします。それ以外の場合はDocker Hubをデフォルトで使用します。したがって、上記のエラーが発生した場合、\ **現在のシステムタイムゾーンが北京のタイムゾーン\ ``+0800`` \かどうかを確認してください** \。

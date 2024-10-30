@@ -1,0 +1,14 @@
+How to perform joint simulation with Apollo and Carla?
+=======================================================
+
+How can I use Carla and Apollo for autonomous driving simulation?
+
+-  Maintainer: <daohu527@gmail.com>
+-  Version: 1.0.0
+-  Date: 05/19/2024
+-  Description:
+
+Answer
+------
+
+<!-- The answer should be clear and logical, potentially using multi-level headings and illustrations. -->

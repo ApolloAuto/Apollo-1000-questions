@@ -1,0 +1,22 @@
+データセットをレコードパッケージに変換する方法？
+==============================
+
+特定のデータセットにおけるApolloの認識アルゴリズムの性能を評価するために、データセット内のデータをApolloプラットフォームでテストするために必要な形式に変換したいと思います。
+
+-  メンテイナー: \ daohu527@gmail.com
+-  バージョン: 1.0.0
+-  日付: 2024年6月13日
+-  説明:
+
+回答
+----
+
+データセットをレコードパッケージに変換するには、\ ``adataset``\ ツールを使用できます。現在サポートされているデータセットには、apolloscape、KITTI、nuScenesがあります。
+
+nuScenesデータセットを例にとると、\ ``dataset_path``\ をnuScenesデータセットのあるパスに設定します。デフォルトでは、パッケージは現在のディレクトリに出力されます。
+
+.. code:: shell
+
+   adataset -d=n -i=dataset_path
+
+nuScenesの場合、レコードパッケージ名はscene_token.recordで、KITTIはresult.record、ApolloScapeはframe_id.recordです。

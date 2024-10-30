@@ -1,0 +1,16 @@
+What Perception Models Does Apollo Support?
+=============================================
+
+What perception tasks does Apollo support, and what are the corresponding perception models?
+
+-  Maintainer: <daohu527@gmail.com>
+-  Version: 1.0.0
+-  Date: 10/30/2024
+-  Description:
+
+Answer
+------
+
+Apollo supports several perception tasks, including: object detection, object tracking, traffic light detection, lane line recognition, and trajectory prediction. These tasks utilize the latest deep learning algorithms. As models are updated annually, below is an overview of these tasks and their corresponding deep learning models.
+
+We have listed the purposes and download links for these models on GitHub. For details on the models supported by Apollo, please refer to `this link <https://github.com/ApolloAuto/apollo/discussions/15212>`_.

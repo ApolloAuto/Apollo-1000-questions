@@ -1,0 +1,43 @@
+How to Resolve Dependency Download Failure During Compilation?
+============================================================
+
+During the Apollo compilation process, dependencies are downloaded. How can I resolve the issue of download failure due to network problems?
+
+-  Maintainer: \ daohu527@gmail.com
+-  Version: 1.0.0
+-  Date: 06/12/2024
+-  Description:
+
+Answer
+------
+
+Bazel Compilation Cache
+~~~~~~~~~~~~~~~~~~~~~~~
+
+When using Bazel to compile a project, external libraries are often required, and remote code is pulled over the network for compilation. However, when the network is unavailable or the code cannot be pulled, it results in a compilation failure.
+
+To address the issue of offline compilation, Bazel supports obtaining dependency files from a local path. Therefore, by placing the required code packages for the current project into the local cache path, compilation failures due to network issues can be avoided.
+
+Here are the specific steps:
+
+1. Download the dependency files required for Bazel to compile Apollo:
+
+   -  Download the dependency files from
+      `Baidu Cloud (n6j2) <https://pan.baidu.com/s/10uwjhZX3vBVmw92ExgCAXw>`__.
+
+2. Copy the downloaded files to the Bazel compilation cache directory:
+
+   .. code:: shell
+
+      # The dependency_files directory contains the dependency files needed for Apollo compilation
+      # apollo/.cache/distdir/ is the Bazel cache path
+
+      cp -r dependency_files/* apollo/.cache/distdir/
+
+3. Restart the compilation:
+
+   .. code:: shell
+
+      ./apollo.sh build
+
+By following these steps, you should be able to successfully complete the compilation.

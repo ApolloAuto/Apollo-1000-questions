@@ -1,0 +1,70 @@
+如何解压Record数据包？
+======================
+
+如何解压Record数据包，提取其中的点云、图像等消息？
+
+-  维护者：\ daohu527@gmail.com
+-  版本：1.0.0
+-  日期：05/09/2024
+-  描述：
+
+回答
+----
+
+自动驾驶系统实时录制了自动驾驶各个模块发布的消息，并且保存在Record数据包中，用户可以从数据包中提取数据进行模型训练、问题分析等。
+
+那么如何从数据包中解压这些数据呢？
+
+安装
+~~~~
+
+``cyber_record``\ 是一款纯python实现的Record读写工具，同时提供命令行和API2种方式，好处是轻量化，跨平台，缺点是速度较慢。
+
+.. code:: shell
+
+   pip3 install cyber_record record_msg
+
+读取图像
+~~~~~~~~
+
+指定图像消息的\ ``topic``\ ，和需要保存的路径\ ``output_path``\ ，运行以下代码。
+
+.. code:: python
+
+   from cyber_record.record import Record
+   from record_msg.parser import ImageParser
+
+   image_parser = ImageParser(output_path='../test')
+   for topic, message, t in record.read_messages():
+     if topic == "/apollo/sensor/camera/front_6mm/image":
+       image_parser.parse(message)
+       # or use timestamp as image file name
+       # image_parser.parse(image, t)
+
+读取点云
+~~~~~~~~
+
+指定点云消息的\ ``topic``\ ，和需要保存的路径\ ``output_path``\ ，运行以下代码。
+
+.. code:: python
+
+   from cyber_record.record import Record
+   from record_msg.parser import PointCloudParser
+
+   pointcloud_parser = PointCloudParser('../test')
+   for topic, message, t in record.read_messages():
+     if topic == "/apollo/sensor/lidar32/compensator/PointCloud2":
+       pointcloud_parser.parse(message)
+       # other modes, default is 'ascii'
+       # pointcloud_parser.parse(message, mode='binary')
+       # pointcloud_parser.parse(message, mode='binary_compressed')
+
+如果需要加速读取过程，可以使用过滤读取，过滤读支持指定topic和时间过滤，会加速消息读取处理过程。
+
+.. code:: python
+
+   def read_filter_by_both():
+     record = Record(file_name)
+     for topic, message, t in record.read_messages('/apollo/canbus/chassis', \
+         start_time=1627031535164278940, end_time=1627031535215164773):
+       print("{}, {}, {}".format(topic, type(message), t))
