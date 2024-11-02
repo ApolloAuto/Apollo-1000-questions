@@ -1,0 +1,63 @@
+How to Save Data Packets to an Externally Mounted Hard Drive?
+=============================================================
+
+Since autonomous driving data packets recorded daily are quite large, we plan to use an external hard drive to store this data. How can this be achieved?
+
+- Maintainer: daohu527@gmail.com
+- Version: 1.0.0
+- Date: 11/02/2024
+- Description:
+
+Answer
+------
+
+By default, data is stored within the container. To achieve data persistence and prevent data loss, it’s necessary to mount the external hard drive to a specific directory on the host, then mount that directory into the container. This way, the data is stored on the hard drive and won’t be lost when the container stops.
+
+Steps to Mount a Hard Drive to a Container in Ubuntu
+----------------------------------------------------
+
+1. **Identify the external hard drive device**
+
+   .. code-block:: bash
+
+      lsblk
+
+   Find your external hard drive device name (e.g., `/dev/sdb1`).
+
+2. **Create a mount directory**
+
+   Create a directory to mount the hard drive (e.g., `/apollo/data/bag`).
+
+   .. code-block:: bash
+
+      cd apollo
+      sudo mkdir -p data/bag
+
+3. **Mount the hard drive**
+
+   Use the `mount` command to mount the hard drive to this directory.
+
+   .. code-block:: bash
+
+      sudo mount /dev/sdb1 data/bag
+
+4. **[Skip] Start the container and mount the directory**
+
+   When starting the container, bind the mount directory to a path within the container (e.g., `/data`).
+
+   .. code-block:: bash
+
+      docker run -v /mnt/external_drive:/data your_container_image
+
+   > Since the `apollo` directory is already mounted in the container, this step can be skipped.
+
+Thus, data on the external hard drive can be accessed within the container’s `/data` directory and will persist even if the container restarts or stops.
+
+Recording Data Packets
+----------------------
+
+Record data packets and specify the save path.
+
+.. code-block:: bash
+
+   cyber_recorder record -a -o=data/bag
